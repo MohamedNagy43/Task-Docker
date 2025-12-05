@@ -1,1 +1,15 @@
+on: 
+  push:
+    branches:
+      - master
 
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "testing the file.yml"
+        run: echo "testing echo"
