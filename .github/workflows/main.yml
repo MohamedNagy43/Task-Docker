@@ -11,5 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "testing the file.yml"
-        run: echo "testing echo"
+      - uses: actions/checkout@v3
+
+      - name: "login to DockerHub"
+        run: docker login --username ${{ secrets.username }} --password ${{ secrets.password }}
+
+      - name: "building image"
+        run: docker build -t ${{ secrets.username }}/mohamed-mohamed-2023040229 .
+      
+      - name: "pushing image"
+        run: docker push ${{ secrets.username }}/mohamed-mohamed-2023040229
+
